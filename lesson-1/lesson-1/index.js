@@ -22,16 +22,19 @@
 		Browser APIs allow JavaScript to do things like update the Document Object Model (DOM API), locate the user (Geolocation API), generate 2D and 3D graphics (Canvas and WebGL APIs), and work with audio and video (Multimedia APIs).
 		*/
 
-		// STEP 2: Get the EM element and store as a variable, using const
+		// STEP 2: Get the EM element and store as a variable, using let
+        let element = document.querySelector('em');
 		
 		// STEP 3: Assign a click event listener to the above element, and include a reference to the function to be invoked
-		
+		element.addEventListener('click',updateName);
 		// STEP 4: Creat a function that waits for the above click event
-		
+		function updateName(){
 			// STEP 4a: Display a prompt asking for input, and assign the input to a variable using let
-			
+			let firstName = prompt('Please enter the user name');
+            let age = prompt('Please enter your age');
 			// STEP 4b: Grab the input from the variable and build a new string, then change the text inside the EM element, using the textContent property
-			
+            element.textContent = firstName + ' ' + age + ' years old';
+        }	
 		
 		// STEP 5: Comment out the addEventListener above, and replace it with an onclick attribute typed directly into the EM element in the HTML - note that this is common, but it is considered to be bad practice - separate your HTML and your JS
 
