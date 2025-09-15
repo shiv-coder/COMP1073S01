@@ -10,8 +10,70 @@
 	<h1>Var-let-const</h1>
 	<p>JavaScript can store data in variables of different types. Let's learn how to declare, initialize, and update variables properly. We'll also investigate the different types of JavaScript variables.</p>
 	<script>
-		
+        //var
+        //Function-scoped
+        function exampleVar(){
 
+            if(true){
+                var x = 10;
+                
+            }
+            console.log(x);
+        }
+exampleVar();
+        //Hoisted
+        console.log(ingredient);
+        var ingredient = "milk";
+
+
+        var ingredient;
+        console.log(ingredient);
+        ingredient = "milk";
+
+
+        //can be redeclared and updated
+        var y = 5;
+        var y = 20;
+        console.log(y);
+		exampleVar();  
+
+        //let
+        //Block-scoped
+        function exampleVar(){
+
+            if(true){
+                let x = 10;
+                 console.log(x);
+            }
+           
+        }
+
+        //Hoisted
+        //console.log(ingredient1);
+        let ingredient1 = "milk";
+
+        //can be updated but not redeclared in same scope
+       let b = 15;
+          b = 40;
+          console.log(b);
+
+
+          //const
+          //block-scoped
+          //Must be initialzied at declaration
+          //can not be redeclared or updated
+            //If it's an object or array , its content can be changed
+          const PI = 3.14;
+               
+console.log(PI);
+
+        const person = {
+            name : "shivi"
+        };
+        person.name = "shivali";
+        console.log(person.name);
+
+		
 
 	</script>
 </body>
