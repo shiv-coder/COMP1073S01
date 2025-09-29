@@ -3,8 +3,44 @@ let courseList = 'My courses this term are ';
 const msg = document.querySelector('#courses');
 /* STEP 1a: A simple FOR loop
 A simple loop of this structure needs an initializer (counter variable), an exit conditional, and and incrementor/decrementor */
+// for(let i =0; i<courses.length; i++){
+// 	if( i === courses.length-1){
+// 		courseList += `and ${courses[i]}.`;
+// 	}else{
+// 		courseList += `${courses[i]}, `;
+// 	}
+	
+// }
+// msg.textContent = courseList;
 
+//for each
+courses.forEach((course,index) =>{
+	if(index === courses.length-1){
+		courseList += `and ${course}.`;
+	} else {
+		courseList += `${course}, `;
+	}
+
+});
 msg.textContent = courseList;
+
+//map and filter
+
+//map transform original array into new array
+const numbers = [1,2,3,4];
+const doubled = numbers.map(num => num *2);
+console.log(doubled);
+console.log(numbers);
+
+
+//filter
+//creates a new arrya with only the elements that pass a test(condition)
+const filtered = numbers.filter(num => num > 2);
+console.log(filtered);
+
+
+
+
 // STEP 1b: Add a conditional for the last item in the array so we can finish the sentence with a period.
 
 /* STEP 2: Exit a loop with break */
@@ -14,12 +50,22 @@ const input = document.querySelector('input');
 const btn = document.querySelector('button#cities');
 
 btn.addEventListener('click', function() {
-	var searchName = input.value;
+	let searchName = input.value;
 	input.value = '';
 	input.focus();
 	/* STEP 2a: Create a FOR loop to iterate through the cities array */
-
+	for(let i =0; i<cities.length;i++){
 		/* STEP 2b: Build an IF/ELSE conditional that compares searchName with cities[i] */
+		//console.log(cities[i]);
+		if (searchName === cities[i]){
+			result.textContent = `${searchName} is in the list of cities`;
+			break;
+
+		}else{
+			result.textContent = `${searchName} The city you typed in not in the list of cities`;
+			
+		}
+	}
 
 });
 
@@ -28,13 +74,14 @@ btn.addEventListener('click', function() {
 /* STEP 3: Skip a loop interation with continue */
 const numberList = document.querySelector('#numberList');
 let num = 50;
-for (let i = 1; i <= num; i ++) {
+for (let i = 1; i <= num; i++) {
 	let sqRoot = Math.sqrt(i);
-	/* STEP 3a: Build an IF statement that checks whether the square root of the number is NOT an integer */
-	//if () {
+	//STEP 3a: Build an IF statement that checks whether the square root of the number is NOT an integer */
+	if (Math.floor(sqRoot) !== sqRoot) {
 		/* STEP 3b: If the square root of the number is not an integer, we don't want to output it to the paragraph, so skip the rest of the instructions inside this loop and go back up to the FOR, using 'continue' */
+		continue;
 
-	//}
+	}
 	numberList.textContent += i + ' ';
 }
 
@@ -42,15 +89,36 @@ for (let i = 1; i <= num; i ++) {
 
 let j = 0;
 let outputWhile = '';
+
 /* STEP 4a: WHILE loop to iterate through the cities array (created above in STEP 2) */
+while(j < cities.length)
+{
+	outputWhile += `${cities[j]}  `;
+	j++;
+}
+//console.log(outputWhile);
 
-console.log(outputWhile);
-
-let k = 0;
-var outputDo = '';
+let k = cities.length-1;
+let outputDo = '';
 /* STEP 4b: DO/WHILE loop - grab the above IF/ELSE and the 'i++', then create the very same output with DO/WHILE (uncomment the above 'i = 0', first) */
+do{
+	outputDo += `${cities[k]}  `;
+	k--;
+}while(k>=0)
 
 console.log(outputDo);
+
+//If you want to go from first to last
+
+let l = 0
+let outputDo1 = '';
+/* STEP 4b: DO/WHILE loop - grab the above IF/ELSE and the 'i++', then create the very same output with DO/WHILE (uncomment the above 'i = 0', first) */
+do{
+	outputDo1 += `${cities[l]}  `;
+	l++;
+}while(l<cities.length);
+
+console.log(outputDo1);
 /* …now try to loop through the same array backwards! */
 
 // This page inspired by and adapted from https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Looping_code
