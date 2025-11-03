@@ -1,9 +1,37 @@
 const output = document.getElementById('output');
 
 /* STEP 1a: Create a new object using a regular function */
-
+function createAlbum(namee){
+    const obje = {};
+    obje.namee = namee;
+    obje.describe = function(){
+        //alert(`The album is called ${this.namee}`);
+    };
+    return obje;
+}
+let Album1 = createAlbum('Thriller');
+//Album1.describe();
 
 /* STEP 1b: Use the console to create a new vehicle object, and then invoke the function represented using .description() */
+function Album(name,artist,year,numTracks){
+    this.name = name;
+    this.artist = artist;
+    this.year = year;
+    this.numTracks = numTracks;
+    }
+    Album.prototype.describe = function(){
+        alert(`The album is called ${this.name} by ${this.artist} was released in ${this.year} and has ${this.numTracks} tracks.`);
+    };
+// let album1 = new Album('Thriller');
+// let album2 = new Album('Back in Black');
+const album3 = new Album('Substance','New Order',1987,24);
+
+// album1.describe();
+// album2.describe();
+album3.name;
+album3.numTracks;
+album3.year;
+album3.describe();
 
 
 /* STEP 2a: In order to be a bit more concise, JavaScript allows us to use constructor functions - rewrite the above function, without returning anything. Capitalize the name of the function. */
@@ -12,7 +40,7 @@ const output = document.getElementById('output');
 /* STEP 2b: Use the console to create a couple of different albums, using the 'new' keyword, and again invoking the .describe() method for each one */
 
 
-/* STEP 3a: Build the complete constructor for the object Vehicle (comment out the above functions first). Include full vehicle name (manufacturer and model), year, type, colour, and description (function). */
+/* STEP 3a: Build the complete constructor for the object Album (comment out the above functions first). Include full vehicle name (manufacturer and model), year, type, colour, and description (function). */
 
 
 
