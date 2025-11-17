@@ -6,11 +6,11 @@ const section = document.querySelector('section');
 async function populate(){
     // Introducing JavaScript Object Notation (JSON): https://json.org/
     // STEP 4: Store the URL of a JSON file in a variable */
-    const requestURL = 'https://shiv-coder.github.io/COMP1073S01/lesson-10/js/i-scream.json';
+    const requestURL = './js/i-scream.json';
     // STEP 5: Use the new URL to create a new request object
-    const request = new Request(requestURL);
+    //const request = new Request(requestURL);
     // STEP 6: Make a network request with the fetch() function, which returns a Response object
-    const response = await fetch(request);
+    const response = await fetch(requestURL);
     
     // STEP 7: Capture the returned Response object and covert to a JSON object using json()
     const iScream = await response.json()
@@ -53,8 +53,7 @@ function showTopFlavors(jsonObj) {
 
         // STEP 10f: Set the textContent property for each of the above elements (except the UL), based on the JSON content
         h2.textContent = topFlavors[i].name;
-        img.setAttribute('src','https://shiv-coder.github.io/COMP1073S01/lesson-10/images/' + topFlavors[i].image);
-        
+        img.setAttribute('src','./images/' + topFlavors[i].image);
 
         // STEP 10g: Build a loop for the ingredients array in the JSON
         let ingredients = topFlavors[i].ingredients;
